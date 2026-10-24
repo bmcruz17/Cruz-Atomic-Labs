@@ -36,3 +36,12 @@
 ehthumbs.db
 Thumbs.db
 
+# Jekyll / Bundler #
+####################
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+.bundle/
+vendor/
+

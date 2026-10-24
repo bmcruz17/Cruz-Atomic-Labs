@@ -1,0 +1,33 @@
+name: Site check
+
+# Builds the site the same way GitHub Pages does and runs the test suite.
+# Does not deploy anything.
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Build and test
+    runs-on: ubuntu-latest
+    env:
+      # Lets jekyll-github-metadata read public repo info without hitting the
+      # anonymous API rate limit.
+      JEKYLL_GITHUB_TOKEN: ${{ github.token }}
+      PAGES_REPO_NWO: ${{ github.repository }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+
+      - name: Run tests
+        run: bundle exec rake test
