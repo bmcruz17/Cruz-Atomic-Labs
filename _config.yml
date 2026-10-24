@@ -1,0 +1,24 @@
+# Jekyll configuration for the GitHub Pages site.
+#
+# TODO(Brandon): set the site identity once decided, for example:
+#   title: <site title>
+#   description: <one-sentence summary used in search results and link previews>
+# Until then, GitHub Pages falls back to the repository name and the GitHub repo
+# description.
+#
+# Step 3 of the GitHub Pages exercise (issue #1) asks you to add a `theme:` line
+# here; that is left for you to do so the exercise check runs on your own commit.
+
+plugins:
+  - jekyll-sitemap
+
+# Repo files that are not part of the website.
+exclude:
+  - README.md
+  - LICENSE
+  - docs/
+  - test/
+  - Gemfile
+  - Gemfile.lock
+  - Rakefile
+  - vendor/
